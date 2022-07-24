@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% block title %}User Details{% endblock %}
+{% block page_name %}User Details{% endblock %}
+
+{% block content %}
+<div id="detail_container" class="m-3">
+    <div class="row no-gutters">
+        <div class="col-md-1">
+            <img src="{{user.image_url}}" alt="User's profile image">
+        </div>
+
+        <div class="col-md-11">
+            <div class="card-body">
+                <h1>{{user.first_name}} {{user.last_name}}</h1>
+                <a href="/users/{{user.id}}/edit" class="btn btn-success m-1">Edit</a>
+                <form action="/users/{{user.id}}/delete" id="delete" method="POST"><button id="delete-btn" class="btn btn-danger m-1">Delete</button>
+                </form>
+                <a href="/users" class="btn btn-primary m-1">Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
