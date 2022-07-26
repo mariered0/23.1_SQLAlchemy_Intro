@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{% block title %}Post Details{% endblock %}
+{% block page_name %}Post Details{% endblock %}
+
+{% block content %}
+<div id=post_details_container class="m-3">
+    <h1>{{post.title}}</h1>
+    <blockquote class="blockquote">
+        <p class="mb-3">{{post.content}}</p>
+        <footer class="blockquote-footer">By <cite title="Source Title">{{post.user.first_name}}
+                {{post.user.last_name}}</cite></footer>
+    </blockquote>
+
+    <a href="/users/{{post.user.id}}" class="btn btn-outline-info">Cancel</a>
+    <a href="/posts/{{post.id}}/edit" class="btn btn-success m-1">Edit</a>
+    <button form="delete" class="btn btn-danger m-1 btn-details">Delete</button>
+    <form action="/posts/{{post.id}}/delete" id="delete" method="POST"></form>
+
+
+
+</div>
+{% endblock %}

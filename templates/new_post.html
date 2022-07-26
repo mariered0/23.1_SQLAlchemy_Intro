@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+{% block title %}New Post{% endblock %}
+{% block page_name %}Create New Post{% endblock %}
+
+{% block content %}
+<div class="m-3">
+    <h1>Add Post for {{user.first_name}} {{user.last_name}}</h1>
+    <form action='/users/{{user.id}}/posts/new' id='new_post' method="POST">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" name="title" placeholder="Enter title">
+        </div>
+        <div class="form-group">
+            <label for="content">Content</label>
+            <input type="text" class="form-control" name="content" placeholder="Enter content">
+        </div>
+    </form>
+    
+    <a href="/users" class="btn btn-primary mr-5">Home</a>
+    <a href="/users/{{user.id}}" class="btn btn-info">Cancel</a>
+    <button form="new_post" class="btn btn-success">Add</button>
+</div>
+
+
+
+
+
+{% endblock %}
