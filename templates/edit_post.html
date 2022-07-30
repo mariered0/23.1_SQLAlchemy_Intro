@@ -8,14 +8,25 @@
     <form action='/posts/{{post.id}}/edit' method="POST" id="edit_post">
         <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" name="title" class="form-control" 
-                value="{{post.title}}">
+            <input type="text" name="title" class="form-control" value="{{post.title}}">
         </div>
-    
+
         <div class="form-group">
             <label for="content">Post Content</label>
             <input type="text" name="content" class="form-control" value="{{post.content}}">
         </div>
+
+        <div class="form-group">
+            {% for tag in tags %}
+            <input type="checkbox" id="tag_{{tag.id}}" name="tag" value={{tag.id}} aria-label="Checkbox for tag input" {% if tag in post.tags %}checked{% endif %}>
+            <label for="tag_{{tag.id}}">
+                {{tag.name}}
+            </label>
+            <br>
+            {% endfor %}
+            </ul>
+        </div>
+
     </form>
     <a href="/posts/{{post.id}}" class="btn btn-outline-info">Cancel</a>
     <button type="submit" form="edit_post" class="btn btn-success">Save</button>

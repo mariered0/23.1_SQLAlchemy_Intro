@@ -6,7 +6,7 @@
 <div id="detail_container" class="m-3">
     <div class="row no-gutters">
         <div class="col-md-1">
-            <img src="{{user.image_url}}" alt="User's profile image">
+            <img src="{{user.image_url}}" alt="User's profile image" class="img-thumbnail">
         </div>
 
         <div class="col-md-11">
@@ -21,7 +21,7 @@
                 <h2>Posts</h2>
                 </div>
                 <ul>
-                    {% for post in posts %}
+                    {% for post in user.posts %}
                     <li>
                         <a href="/posts/{{post.id}}">
                             {{post.title}}

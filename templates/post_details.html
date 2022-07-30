@@ -8,8 +8,19 @@
     <blockquote class="blockquote">
         <p class="mb-3">{{post.content}}</p>
         <footer class="blockquote-footer">By <cite title="Source Title">{{post.user.first_name}}
-                {{post.user.last_name}}</cite></footer>
+                {{post.user.last_name}} on {{post.friendly_date}}</cite></footer>
     </blockquote>
+
+    <div>
+        <p class="font-weight-bold">Tags:
+        {% for tag in post.tags %}
+        <a href="/tags/{{tag.id}}" class="btn btn-primary btn-sm font-italic"> 
+        {{tag.name}}
+        </a>
+        {% endfor %}
+        </p>
+    </div>
+
 
     <a href="/users/{{post.user.id}}" class="btn btn-outline-info">Cancel</a>
     <a href="/posts/{{post.id}}/edit" class="btn btn-success m-1">Edit</a>
